@@ -9,7 +9,8 @@ class App extends React.Component{
            work: "",
             count: 0,
             text : "",
-            textwarning: ""
+            textwarning: "",
+            radio: ""
         }
         this.task1 = this.task1.bind(this);
         this.forCount = this.forCount.bind(this);
@@ -48,6 +49,13 @@ class App extends React.Component{
             console.log(e.target.value + " : " + "checkbox unchecked");
         }
     }
+    inpt2 = (e) => {
+     if (e.target.checked) {
+         console.log(e.target.value);
+         this.setState({radio: e.target.value});
+     }
+
+    }
 
 
     render() {
@@ -61,14 +69,28 @@ class App extends React.Component{
                     <p>{this.state.count}</p>
                     <button onClick={this.ResetCount}>ResetCount</button>
                     <div className="green" onMouseMove={this.mouseMove}></div>
-                    <button  className="atr1" data="atr-1"  onClick={this.showatr1}>atr1</button>
-                    <button  className="atr2" data="atr-2" onClick={this.showatr1}>atr2</button>
-                    <input type="text" onChange={this.inputChange}/>
+                    <div>
+                        <button  className="atr1" data="atr-1"  onClick={this.showatr1}>atr1</button>
+                        <button  className="atr2" data="atr-2" onClick={this.showatr1}>atr2</button>
+                        <input type="text" onChange={this.inputChange}/>
+                        <select >
+                            <option>Пункт 1</option>
+                            <option>Пункт 2</option>
+                            <option>Пункт 3</option>
+                            <option>Пункт 4</option>
+                        </select>
+                    </div>
                     <p>{this.state.text}</p>
-                    <p>{this.state.textwarning}</p>
-                    <input type="checkbox"  name="option1" value="a1" onInput={this.inpt}/>
-                    <input type="checkbox"  name="option2" value="a2" onInput={this.inpt}/>
-                    <input type="checkbox"  name="option3" value="a3" onInput={this.inpt}/>
+                    <span>{this.state.textwarning}</span>
+                   <p>
+                       <input type="checkbox"  name="option1" value="a1" onInput={this.inpt}/>
+                       <input type="checkbox"  name="option2" value="a2" onInput={this.inpt}/>
+                       <input type="checkbox"  name="option3" value="a3" onInput={this.inpt}/>
+                       <input type="radio" id="contactChoice1" name="contact" value="first" onInput={this.inpt2}/>
+                       <input type="radio" id="contactChoice1" name="contact" value="second" onInput={this.inpt2}/>
+                       <input type="radio" id="contactChoice1" name="contact" value="third" onInput={this.inpt2}/>
+                       <span>{this.state.radio}</span>
+                   </p>
 
                 </header>
             </div>
