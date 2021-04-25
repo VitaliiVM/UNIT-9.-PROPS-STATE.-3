@@ -41,6 +41,13 @@ class App extends React.Component{
            this.setState({textwarning: ""});
        }
     }
+    inpt = (e) => {
+        if (e.target.checked) {
+            console.log(e.target.value + " : " + "checkbox checked ");
+        } else  {
+            console.log(e.target.value + " : " + "checkbox unchecked");
+        }
+    }
 
 
     render() {
@@ -59,6 +66,9 @@ class App extends React.Component{
                     <input type="text" onChange={this.inputChange}/>
                     <p>{this.state.text}</p>
                     <p>{this.state.textwarning}</p>
+                    <input type="checkbox"  name="option1" value="a1" onInput={this.inpt}/>
+                    <input type="checkbox"  name="option2" value="a2" onInput={this.inpt}/>
+                    <input type="checkbox"  name="option3" value="a3" onInput={this.inpt}/>
 
                 </header>
             </div>
