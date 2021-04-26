@@ -28,6 +28,7 @@ class App extends React.Component{
         console.log("work");
         this.setState({work: "button work"});
     }
+
     forCount() {
         this.setState({count: this.state.count + 1});
     }
@@ -35,12 +36,15 @@ class App extends React.Component{
     ResetCount() {
         this.setState({count: 0});
     }
+
     mouseMove() {
         console.log("move");
     }
+
     showatr1 = (e) => {
         console.log(e.target.getAttribute("data"));
     }
+
     inputChange = (e) => {
        this.setState({text: e.target.value});
        if (this.state.text.length < 6) {
@@ -49,6 +53,7 @@ class App extends React.Component{
            this.setState({textwarning: ""});
        }
     }
+
     inpt = (e) => {
         if (e.target.checked) {
             console.log(e.target.value + " : " + "checkbox checked ");
@@ -56,6 +61,7 @@ class App extends React.Component{
             console.log(e.target.value + " : " + "checkbox unchecked");
         }
     }
+
     inpt2 = (e) => {
      if (e.target.checked) {
          console.log(e.target.value);
@@ -63,22 +69,28 @@ class App extends React.Component{
      }
 
     }
+
     inptValue = (e) => {
         this.setState({select: e.target.value});
         console.log(e.target.value);
     }
+
     divSize() {
         this.setState({width:  this.state.width + 3});
       console.log(this.state.width);
     }
+
     rangeValue = (e) => {
         this.setState({rangeValue: e.target.value});
     }
+
     hidepicture()  {
     if (this.state.picture) {
         this.setState({picture: ""});
+        document.querySelector('.btn1').textContent = "Show picture";
     } else {
         this.setState({picture: "https://cdn3.iconfinder.com/data/icons/big-avatar-set/100/Avatar-39-256.png"});
+        document.querySelector('.btn1').textContent = "Hide picture";
     }
     }
 
@@ -89,7 +101,7 @@ class App extends React.Component{
                 <header className="App-header">
                     <img src={logo} className="App-logo" alt="logo" />
                     <img src={this.state.picture}/>
-                    <button onClick={this.hidepicture}>HidePicture</button>
+                    <button className="btn1" onClick={this.hidepicture}>HidePicture</button>
                     <button onClick={this.task1}>Button</button>
                     <p>{this.state.work}</p>
                     <button onClick={this.forCount}>Count</button>
