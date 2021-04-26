@@ -12,7 +12,7 @@ class App extends React.Component{
             textwarning: "",
             radio: "",
             select: "",
-            width: "200px",
+            width: 200,
             rangeValue: "50",
             picture: "https://cdn3.iconfinder.com/data/icons/big-avatar-set/100/Avatar-39-256.png"
 
@@ -22,6 +22,7 @@ class App extends React.Component{
         this.ResetCount = this.ResetCount.bind(this);
         this.divSize = this.divSize.bind(this);
         this.hidepicture = this.hidepicture.bind(this);
+        this.divReset = this.divReset.bind(this);
     }
 
     task1() {
@@ -76,7 +77,7 @@ class App extends React.Component{
     }
 
     divSize() {
-        this.setState({width:  this.state.width + 3});
+        this.setState({width: this.state.width + 3});
       console.log(this.state.width);
     }
 
@@ -92,6 +93,10 @@ class App extends React.Component{
         this.setState({picture: "https://cdn3.iconfinder.com/data/icons/big-avatar-set/100/Avatar-39-256.png"});
         document.querySelector('.btn1').textContent = "Hide picture";
     }
+    }
+
+    divReset() {
+        this.setState({width: 200});
     }
 
 
@@ -135,7 +140,7 @@ class App extends React.Component{
                    </p>
                     <div className="first" style={{"width": this.state.width}}></div>
                     <button onClick={this.divSize}>DivSize</button>
-                    <button>DivReset</button>
+                    <button onClick={this.divReset}>DivReset</button>
 
                 </header>
             </div>
